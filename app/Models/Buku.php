@@ -21,6 +21,8 @@ class Buku extends Model
     ];
 
     public $incrementing = false; // karena id bukan auto-increment (berisi huruf/angka)
+    public $timestamps = false;
+
 
     // relasi ke penerbit
     public function penerbit()

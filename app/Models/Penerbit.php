@@ -20,6 +20,8 @@ class Penerbit extends Model
     ];
 
     public $incrementing = false;
+    public $timestamps = false;
+
 
     // relasi ke buku
     public function buku()

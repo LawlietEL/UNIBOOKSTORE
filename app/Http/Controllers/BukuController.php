@@ -49,7 +49,7 @@ class BukuController extends Controller
 
     public function pengadaan()
     {
-        $buku = Buku::with('penerbit')->where('stok', '<', 5)->get();
+        $buku = Buku::with('penerbit')->where('stok', '<', 10)->get();
         return view('buku.pengadaan', compact('buku'));
     }
 }
