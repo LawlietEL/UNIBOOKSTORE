@@ -1,20 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pengadaan Buku - UNIBOOKSTORE</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
+@extends('layouts.main')
 
-<div class="container mt-5">
+@section('title', 'Pengadaan')
+
+@section('content')
+<div class="container mt-2">
     <div class="card shadow-sm">
         <div class="card-header bg-warning">
             <h4 class="mb-0">📦 Daftar Buku Stok Rendah</h4>
         </div>
         <div class="card-body">
-            <a href="{{ route('buku.index') }}" class="btn btn-secondary mb-3">← Kembali ke Daftar Buku</a>
-
             @if($buku->isEmpty())
                 <div class="alert alert-success">
                     Semua stok buku aman! Tidak ada pengadaan yang dibutuhkan saat ini.
@@ -50,7 +44,4 @@
         </div>
     </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection

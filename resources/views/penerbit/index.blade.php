@@ -1,16 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Data Penerbit</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-<div class="container mt-5">
+@extends('layouts.main')
+
+@section('title', 'Data Penerbit')
+
+@section('content')
+<div class="container">
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h1 class="text-primary">📘 Data Penerbit</h1>
         <div>
-            <a href="{{ route('penerbit.create') }}" class="btn btn-success">+ Tambah Penerbit</a>
-            <a href="{{ route('buku.index') }}" class="btn btn-secondary">📚 Data Buku</a>
+            <a href="{{ route('penerbit.create') }}" class="btn btn-success me-2">+ Tambah Penerbit</a>
+            <a href="{{ route('admin') }}" class="btn btn-secondary">📚 Data Buku</a>
         </div>
     </div>
 
@@ -30,19 +28,19 @@
             </tr>
         </thead>
         <tbody>
-        @foreach($penerbit as $p)
+        @foreach($penerbit as $item)
             <tr>
-                <td>{{ $p->id }}</td>
-                <td>{{ $p->nama }}</td>
-                <td>{{ $p->alamat }}</td>
-                <td>{{ $p->kota }}</td>
-                <td>{{ $p->telepon }}</td>
+                <td>{{ $item->id }}</td>
+                <td>{{ $item->nama }}</td>
+                <td>{{ $item->alamat }}</td>
+                <td>{{ $item->kota }}</td>
+                <td>{{ $item->telepon }}</td>
                 <td>
-                    <a href="{{ route('penerbit.edit', $p->id) }}" class="btn btn-sm btn-primary">Edit</a>
-                    <form action="{{ route('penerbit.destroy', $p->id) }}" method="POST" class="d-inline">
+                    <a href="{{ route('penerbit.edit', $item->id) }}" class="btn btn-sm btn-primary">Edit</a>
+                    <form action="{{ route('penerbit.destroy', $item->id) }}" method="POST" class="d-inline">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus?')">Hapus</button>
+                        <button class="btn btn-sm btn-danger" onclick="return confirm('Hapus penerbit ini?')">Hapus</button>
                     </form>
                 </td>
             </tr>
@@ -50,5 +48,4 @@
         </tbody>
     </table>
 </div>
-</body>
-</html>
+@endsection
